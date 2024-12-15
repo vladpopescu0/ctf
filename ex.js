@@ -40,5 +40,5 @@ app.use(routes);
 })();
 
 (async () => {
-  app.listen(53713, "0.0.0.0", () => console.log("Listening on port 1337"));
+  app.listen(1337, "0.0.0.0", () => console.log("Listening on port 1337"));
 })();
