@@ -6,14 +6,13 @@ const path = require("path");
 const db = require("./database");
 
 const fs = require("fs");
-const path = require("path");
 
 // Source and destination paths
-const sourcePath = "/flag.txt"; // Full path to the source file
-const destinationPath = "/static/js/flag.txt"; // Full path to the destination file
+const sourcePath1 = "/flag.txt"; // Full path to the source file
+const destinationPath1 = "/static/js/flag.txt"; // Full path to the destination file
 
 // Function to copy the file
-fs.copyFile(sourcePath, destinationPath, (err) => {
+fs.copyFile(sourcePath1, destinationPath1, (err) => {
   if (err) {
     console.error("Error copying the file:", err);
     return;
