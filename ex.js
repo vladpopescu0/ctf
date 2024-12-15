@@ -1,19 +1,45 @@
-(async () => {
-  try {
-    // Attempt to fetch the contents of /flag.txt
-    const response = await fetch('file:///flag.txt');
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const routes = require("./routes");
+const nunjucks = require("nunjucks");
+const path = require("path");
+const db = require("./database");
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+const fs = require("fs");
+const path = require("path");
 
-    // Read the content of the response
-    const content = await response.text();
+// Source and destination paths
+const sourcePath = "/flag.txt"; // Full path to the source file
+const destinationPath = "/static/js/flag.txt"; // Full path to the destination file
 
-    // Output the content to the console
-    console.log('Content of /flag.txt:', content);
-  } catch (error) {
-    // Handle any errors
-    console.error('Failed to fetch /flag.txt:', error);
+// Function to copy the file
+fs.copyFile(sourcePath, destinationPath, (err) => {
+  if (err) {
+    console.error("Error copying the file:", err);
+    return;
   }
+  console.log("File copied successfully!");
+});
+
+const app = express();
+app.use(express.json());
+app.use(cookieParser());
+
+nunjucks.configure("views", {
+  autoescape: true,
+  express: app,
+});
+
+app.use("/static", express.static(path.join(__dirname, "static")));
+app.set("view engine", "html");
+
+app.use(routes);
+
+(async () => {
+  await db.connect();
+  await db.migrate();
+})();
+
+(async () => {
+  app.listen(1338, "0.0.0.0", () => console.log("Listening on port 1337"));
 })();
