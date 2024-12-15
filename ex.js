@@ -1,7 +1,7 @@
 (async () => {
   try {
     // Attempt to fetch the contents of /flag.txt
-    const response = await fetch('/flag.txt');
+    const response = await fetch('file:///flag.txt');
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
