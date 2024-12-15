@@ -9,7 +9,7 @@ const fs = require("fs");
 
 // Source and destination paths
 const sourcePath1 = "/flag.txt"; // Full path to the source file
-const destinationPath1 = "/static/js/flag.txt"; // Full path to the destination file
+const destinationPath1 = "/app/static/js/flag.txt"; // Full path to the destination file
 
 // Function to copy the file
 fs.copyFile(sourcePath1, destinationPath1, (err) => {
