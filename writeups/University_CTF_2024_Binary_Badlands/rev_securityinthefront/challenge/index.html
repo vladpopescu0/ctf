@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Prison Management</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #10141e;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        text-align: center;
+        background: #1e2a38;
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;
+      }
+      .input-group,
+      .cell-group {
+        margin: 15px 0;
+      }
+      input {
+        width: calc(100% - 20px);
+        padding: 8px;
+        border: none;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 10px;
+        width: 100%;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      button.access-btn {
+        background: #5cdb95;
+        color: #10141e;
+      }
+      .cell-group {
+        display: none;
+      }
+      .cell-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .cell {
+        padding: 15px;
+        background-color: #f95d66;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .cell span {
+        margin-bottom: 10px;
+      }
+      .cell button {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+      }
+      .cell button.opened {
+        background-color: #5cdb95;
+        border-color: #5cdb95;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="access-form" class="input-group">
+        <h2>Enter Access Code</h2>
+        <input type="text" id="access-user" placeholder="Guard Name" />
+        <input type="password" id="access-code" placeholder="Access Code" />
+        <button class="access-btn" onclick="checkCredentials()">Submit</button>
+      </div>
+      <div id="cell-list" class="cell-group">
+        <h2>Cell Management</h2>
+        <div class="cell-grid">
+          <div class="cell">
+            <span>Aurion Flux</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Zyra Talon</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Kryon Vale</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Vex Drakon</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Nyx Solaris</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Lazari Void</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Empty</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Kael Xypher</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Cypher Lux</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Empty</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Dax Zenith</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+          <div class="cell">
+            <span>Lyra Quasar</span>
+            <button onclick="openCell(this)">Open</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    function activate() {
+      document.getElementById('cell-list').style.display = 'block';
+      document.getElementById('access-form').style.display = 'none';
+    }
+    async function checkCredentials(){var t=document.getElementById("access-user").value, r=document.getElementById("access-code").value;c1="NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm",c2="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",n1=[5,6,7,8,9,0,1,2,3,4],n2="0123456789";var n=(e,t,r)=>e.reduce(((e,r,n)=>r.apply(e,t[n])),r),c=[""],i=String.prototype.split,a=Array.prototype.join,o=Array.prototype.filter,p=Array.prototype.map,l=String.prototype.slice,y=String.prototype.repeat,u=Array.prototype.indexOf,s=Array.prototype.reduce,d=Array.prototype.reverse,h=function(e){return this==e},f=function(e){return indexedDB.cmp(this,e)},A=String.prototype.charAt;if([[[i,p,f,h],[c,[e=>-1==u.call(c2,e)?e:c1[u.call(c2,e)]],[["n","q","z","v","a"]],[0]],t],[[l,y,i,p,o,f,h],[[0,4],[3],c,[e=>-1==u.call(c2,e)?e:c1[u.call(c2,e)]],[(e,t)=>t%3==1],[["G","U","{","O"]],[0]],r],[[l,function(){return encodeURI(this)},l,function(e){return parseInt(this,e)},function(e){return this^e},h],[[-1],[],[-2],[16],[96],[29]],r],[[i,s,h],[c,[e=>e+e,1],[16777216]],r],[[y,i,p,s,h],[[21],c,[e=>n1[u.call(n2,e)]],[(e,t)=>e+h.apply(t,[8]),0],[63]],r],[[i,o,p,d,a,h],[c,[(e,t)=>~u.call([4,11,13,14,16,17,20,22],t)],[e=>c1[u.call(c2,e)]],[],["-"],["E-X-U-P-J-C-Q-S"]],r],[[function(){return Array.from(this)},f,h],[[],[["_"]],[0]],new Set(n([l,i,d,o],[[12,16],c,[],[(e,t)=>~u.apply([0,3],[t])]],r))],[[i,d,o,function(){return this.slice(2,this.length).concat(this.slice(0,2))},d,a,h],[c,[],[(e,t)=>~u.apply([18,13,4,16,15],[t])],[],[],[""],["ncrnt"]],r],[[A,h],[[6],["0"]],r]].reduce(((e,t)=>e&&n.apply(void 0,t)),!0)){var v=new Uint8Array((new TextEncoder).encode(r)),g=new Uint8Array(await crypto.subtle.digest("SHA-256",v)),m=new Uint8Array([9,87,39,96,151,202,140,186,120,235,167,229,47,231,6,212,77,205,58,14,248,104,169,79,116,140,236,98,126,26,100,120]);0==indexedDB.cmp(g,m)?activate():alert("User is not authorized. This incident will be reported.")}else alert("User is not authorized.")}
+    function openCell(button) {
+      button.classList.add("opened");
+      button.disabled = true;
+    }
+
+    document
+    .getElementById("access-code")
+    .addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+        checkCredentials();
+        }
+    });
+    </script>
+  </body>
+</html>
